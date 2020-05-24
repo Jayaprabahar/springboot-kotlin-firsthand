@@ -1,29 +1,58 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This is my first kotlin project
 
-### What is this repository for? ###
+### What is this project? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* Kotlin with SpringBoot Project. Simple project for beginers
+* The concept I used is KNVB club list. I have written for AJAX & PSV Enindhoven.
+* I used dynamic autowiring to fetch corresponding services
 
-### How do I get set up? ###
+## Tech Stack
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+| Technology    | Version       |
+| ------------- | :-----------: |
+| Java 		    | OpenJDK 11    |
+| Kotlin 		| 1.3.72	    |
+| SpringBoot    | 2.3.1.BUILD-SNAPSHOT    |
 
-### Contribution guidelines ###
+### APIs Used ###
+* Java Rest API Controller		-	Just prints "Hello Java World"		-	http://localhost:8080/javacontroller
+* Kotlin Rest API Controller	-	Just prints "Hello Kotlin World"	-	http://localhost:8080/kotlincontroller
 
-* Writing tests
-* Code review
-* Other guidelines
 
-### Who do I talk to? ###
+### API Calls & Output ###
+```
+curl http://localhost:8080/javacontroller
+Hello Java World!
+```
 
-* Repo owner or admin
-* Other community or team contact
+```
+curl http://localhost:8080/kotlincontroller
+Hello Kotlin World!
+```
+
+```
+curl http://localhost:8080/kotlincontroller/clubs
+{Amsterdam=Welcome to Amsterdam football club. Our home ground is AJAX Bijlmer. We are true selected for UEFA Champions league this year. Our KNVB Positon is 1, Eindhoven=Welcome to Eindhoven football club. Our home ground is Philips Stadion Eindhoven. We are false selected for UEFA Champions league this year. Our KNVB Positon is 3}
+```
+
+```
+curl http://localhost:8080/kotlincontroller/clubs/Amsterdam
+{"timestamp":"2020-05-24T00:25:45.808+00:00","status":500,"error":"Internal Server Error","message":"","path":"/kotlincontroller/clubs/Amsterdam"}
+```
+
+```
+curl http://localhost:8080/kotlincontroller/clubs/Eindhoven
+Welcome to Eindhoven football club. Our home ground is Philips Stadion Eindhoven. We are false selected for UEFA Champions league this year. Our KNVB Positon is 3
+```
+
+```
+curl http://localhost:8080/kotlincontroller/clubs/Amsterdam/captain/H
+false
+```
+
+```
+curl http://localhost:8080/kotlincontroller/clubs/Amsterdam/captain/Hakim%20Ziyech
+true
+```
